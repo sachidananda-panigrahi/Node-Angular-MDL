@@ -2,6 +2,7 @@
   "name": "materialize-angular-poc",
   "version": "0.0.1",
   "dependencies": {
+    "angular": "~1.4.4",
     "material-design-lite": "~1.0.2"
   },
   "devDependencies": {}
