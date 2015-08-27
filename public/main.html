@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app='ContactsApp'>
 <head data-template-set='html5-reset' id='www-sitename-com'>
     <meta charset='utf-8'>
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
@@ -28,36 +28,7 @@
 
 
 <div class="nam-layout-waterfall mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--waterfall">
-        <!-- Top row, always visible -->
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Contact</span>
-
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-                <label class="mdl-button mdl-js-button mdl-button--icon"
-                       for="waterfall-exp">
-                    <i class="material-icons">search</i>
-                </label>
-
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" name="sample"
-                           id="waterfall-exp"/>
-                </div>
-            </div>
-        </div>
-        <!-- Bottom row, not visible on scroll -->
-        <div class="mdl-layout__header-row">
-            <div class="mdl-layout-spacer"></div>
-            <!-- Navigation -->
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Settings</a>
-                <a class="mdl-navigation__link" href="">Log out</a>
-            </nav>
-        </div>
-    </header>
+    <header class="mdl-layout__header mdl-layout__header--waterfall" ng-include='"views/nav.html"'></header>
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Contact</span>
         <nav class="mdl-navigation">
@@ -102,6 +73,9 @@
         </div>
     </main>
 </div>
+
 <script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
+<script src="assets/lib/bower_components/angular/angular.min.js"></script>
+<script src="app/app.js"></script>
 </body>
 </html>
