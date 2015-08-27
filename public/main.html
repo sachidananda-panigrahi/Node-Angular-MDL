@@ -18,37 +18,88 @@
     <!--<link href='images/favicon.ico' rel='shortcut icon'>-->
     <base href='/'>
     <link rel="stylesheet" href="assets/lib/bower_components/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="assets/css/material.cyan-deep_purple.min.css">
     <link rel="stylesheet" href="assets/css/icon.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
 </head>
 <body>
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
+<!-- Uses a header that contracts as the page scrolls down. -->
+
+
+<div class="nam-layout-waterfall mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--waterfall">
+        <!-- Top row, always visible -->
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title">Contacts</span>
-            <!-- Add spacer, to align navigation to the right -->
+            <span class="mdl-layout-title">Contact</span>
+
             <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                       for="waterfall-exp">
+                    <i class="material-icons">search</i>
+                </label>
+
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                           id="waterfall-exp"/>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom row, not visible on scroll -->
+        <div class="mdl-layout__header-row">
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Settings</a>
+                <a class="mdl-navigation__link" href="">Log out</a>
             </nav>
         </div>
     </header>
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Contacts</span>
+        <span class="mdl-layout-title">Contact</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">All Contacts</a>
+            <a class="mdl-navigation__link" href="">New Contact</a>
         </nav>
     </div>
+    <!--main content starts-->
     <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here --></div>
+        <div class="page-content">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp nam-full-width">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">FirstName</th>
+                            <th>LastName</th>
+                            <th>Mobile</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Sachidananda</td>
+                            <td>Panigrahi</td>
+                            <td>8857928163</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Sachidananda</td>
+                            <td>Panigrahi</td>
+                            <td>8857928163</td>
+                        </tr>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Sachidananda</td>
+                            <td>Panigrahi</td>
+                            <td>8857928163</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </main>
 </div>
 <script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
