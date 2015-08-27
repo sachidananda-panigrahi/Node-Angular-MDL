@@ -11,11 +11,11 @@ app.use(express.static('./public'))
 //    .use('/api', api)
     .get('*', function (req, res) {
         /*if (!req.user) {
-            res.redirect('/login');
-        } else {
-            res.sendFile('public/main.html', {"root": "."});
-        }*/
+         res.redirect('/login');
+         } else {
+         res.sendFile('public/main.html', {"root": "."});
+         }*/
         res.sendFile('public/main.html', {"root": "."});
     })
-    .listen(4000);
-console.log("Server is listing on the port 4000");
+    .listen(5000);
+console.log("Server is listing on the port 5000");
