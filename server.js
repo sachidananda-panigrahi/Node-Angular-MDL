@@ -6,8 +6,7 @@ var express = require('express'),
 //    users   = require('./accounts'),
     app     = express();
 
-app
-    .use(express.static('./public'))
+app.use(express.static('./public'))
 //    .use(users)
 //    .use('/api', api)
     .get('*', function (req, res) {
