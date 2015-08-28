@@ -32,49 +32,24 @@
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="page-content">
-
+                <div class="mdl-layout__header-row mdl-shadow--4dp mdl-color--grey-100 mdl-color-text--grey-800">
+                    <span class="mdl-layout-title">Profile details</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="search" />
+                            <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                        </div>
+                    </div>
+                </div>
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col">
-                        <table class="mdl-data-table mdl-js-data-table full-width" >
-                            <thead>
-                            <tr>
-                                <th class="mdl-data-table__cell--non-numeric">Name</th>
-                                <th class="mdl-data-table__cell--non-numeric">Password</th>
-                                <th class="mdl-data-table__cell--non-numeric">Phone Number</th>
-                                <th>Age</th>
-                                <th class="mdl-data-table__cell--non-numeric">City</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">John Lennon</td>
-                                <td class="mdl-data-table__cell--non-numeric">The smart one</td>
-                                <td class="mdl-data-table__cell--non-numeric">9825214520</td>
-                                <td>40</td>
-                                <td class="mdl-data-table__cell--non-numeric">Pune</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">Paul McCartney</td>
-                                <td class="mdl-data-table__cell--non-numeric">The cute one</td>
-                                <td class="mdl-data-table__cell--non-numeric">7124521452</td>
-                                <td>73</td>
-                                <td class="mdl-data-table__cell--non-numeric">Pune</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">George Harrison</td>
-                                <td class="mdl-data-table__cell--non-numeric">The shy one</td>
-                                <td class="mdl-data-table__cell--non-numeric">9124521452</td>
-                                <td>58</td>
-                                <td class="mdl-data-table__cell--non-numeric">Mumbai</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">Ringo Starr</td>
-                                <td class="mdl-data-table__cell--non-numeric">The funny one</td>
-                                <td class="mdl-data-table__cell--non-numeric">8824521452</td>
-                                <td>74</td>
-                                <td class="mdl-data-table__cell--non-numeric">Pune</td>
-                            </tr>
-                            </tbody>
+                        <table class="mdl-data-table mdl-js-data-table mdl-full-width mdl-shadow--4dp">
+                            <thead ng-include='"views/profile-details-table-header.html"'></thead>
+                            <tbody ng-include='"views/profile-details-table-row.html"'></tbody>
                         </table>
                     </div>
                 </div>
