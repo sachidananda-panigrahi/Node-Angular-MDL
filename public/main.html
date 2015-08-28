@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app='ContactsApp'>
+<html ng-app='contactsApp'>
 <head data-template-set='html5-reset' id='www-sitename-com'>
     <meta charset='utf-8'>
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
@@ -28,78 +28,24 @@
             <!-- Title -->
             <span class="mdl-layout-title">Contacts</span>
             <div class="mdl-layout-spacer"></div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-                <label class="mdl-button mdl-js-button mdl-button--icon"
-                       for="waterfall-exp">
-                    <i class="material-icons">search</i>
-                </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" name="sample"
-                           id="waterfall-exp" />
-                </div>
-            </div>
-            <!-- Right aligned menu below button -->
-            <button id="demo-menu-lower-right"
-                    class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">more_vert</i>
-            </button>
-
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                for="demo-menu-lower-right">
-                <li class="mdl-menu__item">Settings</li>
-                <li class="mdl-menu__item">Logout</li>
-            </ul>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Logout</a>
+            </nav>
         </div>
-        <!-- Bottom row, not visible on scroll -->
-        <!--<div class="mdl-layout__header-row">
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-                <label class="mdl-button mdl-js-button mdl-button--icon"
-                       for="waterfall-exp">
-                    <i class="material-icons">search</i>
-                </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" name="sample"
-                           id="waterfall-exp" />
-                </div>
-            </div>
-        </div>-->
     </header>
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">All Contacts</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Add Contacts</a>
-            <a class="mdl-navigation__link" href="">All Contacts</a>
+            <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
+            <a class="mdl-navigation__link" href="/newContacts">New Contacts</a>
+            <a class="mdl-navigation__link" href="">Settings</a>
         </nav>
     </div>
 
     <!-- main container -->
     <main class="mdl-layout__content">
         <div class="page-content">
-            <div class="page-content">
-                <div class="mdl-layout__header-row mdl-shadow--4dp mdl-color--grey-100 mdl-color-text--grey-800">
-                    <span class="mdl-layout-title">Profile details</span>
-                    <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-                            <i class="material-icons">search</i>
-                        </label>
-                        <div class="mdl-textfield__expandable-holder">
-                            <input class="mdl-textfield__input" type="text" id="search" />
-                            <label class="mdl-textfield__label" for="search">Enter your query...</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <table class="mdl-data-table mdl-js-data-table mdl-full-width mdl-shadow--4dp">
-                            <thead ng-include='"views/profile-details-table-header.html"'></thead>
-                            <tbody ng-include='"views/profile-details-table-row.html"'></tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="page-content" ng-view>
             </div>
         </div>
     </main>
@@ -111,6 +57,8 @@
 
 <script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
 <script src="assets/lib/bower_components/angular/angular.min.js"></script>
+<script src="assets/lib/bower_components/angular-route/angular-route.min.js"></script>
 <script src="app/app.js"></script>
+<script src="app/controller/controllers.js"></script>
 </body>
 </html>
