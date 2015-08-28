@@ -20,8 +20,53 @@
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
-<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--waterfall" ng-include='"views/nav.html"'></header>
+<div class="mdl-layout mdl-js-layout">
+    <!-- header -->
+    <header class="mdl-layout__header">
+        <!-- Top row, always visible -->
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Contacts</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                       for="waterfall-exp">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                           id="waterfall-exp" />
+                </div>
+            </div>
+            <!-- Right aligned menu below button -->
+            <button id="demo-menu-lower-right"
+                    class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">more_vert</i>
+            </button>
+
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                for="demo-menu-lower-right">
+                <li class="mdl-menu__item">Settings</li>
+                <li class="mdl-menu__item">Logout</li>
+            </ul>
+        </div>
+        <!-- Bottom row, not visible on scroll -->
+        <!--<div class="mdl-layout__header-row">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                       for="waterfall-exp">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                           id="waterfall-exp" />
+                </div>
+            </div>
+        </div>-->
+    </header>
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">All Contacts</span>
         <nav class="mdl-navigation">
@@ -29,59 +74,28 @@
             <a class="mdl-navigation__link" href="">All Contacts</a>
         </nav>
     </div>
+
+    <!-- main container -->
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="page-content">
 
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col">
-                        <table class="mdl-data-table mdl-js-data-table full-width" >
-                            <thead>
-                            <tr>
-                                <th class="mdl-data-table__cell--non-numeric">Name</th>
-                                <th class="mdl-data-table__cell--non-numeric">Password</th>
-                                <th class="mdl-data-table__cell--non-numeric">Phone Number</th>
-                                <th>Age</th>
-                                <th class="mdl-data-table__cell--non-numeric">City</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">John Lennon</td>
-                                <td class="mdl-data-table__cell--non-numeric">The smart one</td>
-                                <td class="mdl-data-table__cell--non-numeric">9825214520</td>
-                                <td>40</td>
-                                <td class="mdl-data-table__cell--non-numeric">Pune</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">Paul McCartney</td>
-                                <td class="mdl-data-table__cell--non-numeric">The cute one</td>
-                                <td class="mdl-data-table__cell--non-numeric">7124521452</td>
-                                <td>73</td>
-                                <td class="mdl-data-table__cell--non-numeric">Pune</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">George Harrison</td>
-                                <td class="mdl-data-table__cell--non-numeric">The shy one</td>
-                                <td class="mdl-data-table__cell--non-numeric">9124521452</td>
-                                <td>58</td>
-                                <td class="mdl-data-table__cell--non-numeric">Mumbai</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">Ringo Starr</td>
-                                <td class="mdl-data-table__cell--non-numeric">The funny one</td>
-                                <td class="mdl-data-table__cell--non-numeric">8824521452</td>
-                                <td>74</td>
-                                <td class="mdl-data-table__cell--non-numeric">Pune</td>
-                            </tr>
-                            </tbody>
+                        <table class="mdl-data-table mdl-js-data-table mdl-full-width" >
+                            <thead ng-include='"views/profile-details-table-header.html"'></thead>
+                            <tbody ng-include='"views/profile-details-table-row.html"'></tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- footer -->
+    <footer class="mdl-mega-footer" ng-include='"views/footer.html"'></footer>
 </div>
+
 
 <script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
 <script src="assets/lib/bower_components/angular/angular.min.js"></script>
