@@ -20,8 +20,53 @@
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
-<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--waterfall" ng-include='"views/nav.html"'></header>
+<div class="mdl-layout mdl-js-layout">
+    <!-- header -->
+    <header class="mdl-layout__header">
+        <!-- Top row, always visible -->
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Contacts</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                       for="waterfall-exp">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                           id="waterfall-exp" />
+                </div>
+            </div>
+            <!-- Right aligned menu below button -->
+            <button id="demo-menu-lower-right"
+                    class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">more_vert</i>
+            </button>
+
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                for="demo-menu-lower-right">
+                <li class="mdl-menu__item">Settings</li>
+                <li class="mdl-menu__item">Logout</li>
+            </ul>
+        </div>
+        <!-- Bottom row, not visible on scroll -->
+        <!--<div class="mdl-layout__header-row">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                       for="waterfall-exp">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                           id="waterfall-exp" />
+                </div>
+            </div>
+        </div>-->
+    </header>
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">All Contacts</span>
         <nav class="mdl-navigation">
@@ -29,6 +74,8 @@
             <a class="mdl-navigation__link" href="">All Contacts</a>
         </nav>
     </div>
+
+    <!-- main container -->
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="page-content">
@@ -56,7 +103,11 @@
             </div>
         </div>
     </main>
+
+    <!-- footer -->
+    <footer class="mdl-mega-footer" ng-include='"views/footer.html"'></footer>
 </div>
+
 
 <script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
 <script src="assets/lib/bower_components/angular/angular.min.js"></script>
