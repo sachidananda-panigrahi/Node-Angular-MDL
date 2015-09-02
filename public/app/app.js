@@ -8,6 +8,10 @@ angular.module('contactsApp', ['ngRoute'])
                 controller: 'ListController',
                 templateUrl: 'views/all-contacts.html'
             })
+            .when('/newContact', {
+                controller: 'newContactController',
+                templateUrl: 'views/new-contacts.html'
+            })
             .otherwise({
                 redirectTo: '/contacts'
             });

@@ -4,4 +4,6 @@
 var app = angular.module('contactsApp');
 app.controller('ListController', function(){
 
-})
+}).controller('newContactController',function(){
+
+});
