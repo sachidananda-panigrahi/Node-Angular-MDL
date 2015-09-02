@@ -1,16 +1,20 @@
 /**
  * Created by Sachidananda on 27-08-2015.
  */
-angular.module('contactsApp', ['ngRoute'])
+angular.module('contactsApp', ['ngRoute', 'ngResource'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/contacts', {
                 controller: 'ListController',
                 templateUrl: 'views/all-contacts.html'
             })
-            .when('/newContact', {
+            .when('/contact/new', {
                 controller: 'newContactController',
                 templateUrl: 'views/new-contacts.html'
+            })
+            .when('/contact/:id', {
+                controller: 'SingleController',
+                templateUrl: 'views/single-contact.html'
             })
             .otherwise({
                 redirectTo: '/contacts'

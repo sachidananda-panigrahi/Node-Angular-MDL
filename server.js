@@ -2,13 +2,13 @@
  * Created by Sachidananda.Panigra on 8/26/2015.
  */
 var express = require('express'),
-//    api     = require('./api'),
+    api     = require('./api/api'),
 //    users   = require('./accounts'),
     app     = express();
 
 app.use(express.static('./public'))
 //    .use(users)
-//    .use('/api', api)
+    .use('/api', api)
     .get('*', function (req, res) {
         /*if (!req.user) {
          res.redirect('/login');

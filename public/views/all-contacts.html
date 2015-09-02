@@ -2,7 +2,7 @@
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield--full-width">
-            <input class="mdl-textfield__input" type="text" id="sample3" />
+            <input class="mdl-textfield__input" type="text" id="sample3" ng-model="query" />
             <label class="mdl-textfield__label" for="sample3">Search all contacts.</label>
         </div>
     </div>
@@ -14,27 +14,16 @@
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp nam-full-width">
             <thead>
             <tr>
-                <th class="mdl-data-table__cell--non-numeric">FirstName</th>
-                <th>LastName</th>
-                <th>Mobile</th>
+                <th class="mdl-data-table__cell--non-numeric" ng-repeat="field in fields" ng-click="sort(field)">
+                    <span class="mdl-typography--text-center">{{ field | labelCase }}</span>
+                    <i ng-show='sort.field === field  && !sort.order' class='material-icons'>keyboard_arrow_up</i>
+                    <i ng-show='sort.field === field  && sort.order' class='material-icons'>keyboard_arrow_down</i>
+                </th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="mdl-data-table__cell--non-numeric">Sachidananda</td>
-                <td>Panigrahi</td>
-                <td>8857928163</td>
-
-            </tr>
-            <tr>
-                <td class="mdl-data-table__cell--non-numeric">Sachidananda</td>
-                <td>Panigrahi</td>
-                <td>8857928163</td>
-            </tr>
-            <tr>
-                <td class="mdl-data-table__cell--non-numeric">Sachidananda</td>
-                <td>Panigrahi</td>
-                <td>8857928163</td>
+            <tr ng-click='show(contact.id)'  ng-repeat='contact in contacts | filter: query | orderBy: sort.field : sort.order'>
+                <td class="mdl-data-table__cell--non-numeric" ng-repeat='field in fields'>{{ contact[field][0] }}</td>
             </tr>
             </tbody>
         </table>
