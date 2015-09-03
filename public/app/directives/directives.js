@@ -49,7 +49,7 @@ app.value('FieldTypes', {
 
                 $scope.update = function () {
                     $timeout.cancel(saveTimeout);
-                    saveTimeout = $timeout($scope.blurUpdate, 1000);
+                    saveTimeout = $timeout($scope.blurUpdate, 3000);
                 };
                 $timeout(function() {
                     componentHandler.upgradeAllRegistered();

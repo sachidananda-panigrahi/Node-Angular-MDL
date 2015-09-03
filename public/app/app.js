@@ -21,8 +21,12 @@ angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
             });
         $locationProvider.html5Mode(true);
     })
-    .run(function ($rootScope,$timeout) {
+    .value('options', {})
+    .run(function ($rootScope, $timeout, options, Fields) {
         $rootScope.$on('$viewContentLoaded', function() {
+            Fields.get().success(function (data) {
+                options.displayed_fields = data;
+            });
             $timeout(function() {
                 componentHandler.upgradeAllRegistered();
             })

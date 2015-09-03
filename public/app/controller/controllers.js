@@ -18,8 +18,26 @@ app.controller('ListController', function($scope, $rootScope, $contact, $locatio
         $location.url('/contact/' + id);
     };
 
-}).controller('newContactController',function(){
+}).controller('newContactController',function($scope, $rootScope, $contact, $location){
+    $scope.contact = new $contact({
+        firstName: ['', 'text'],
+        lastName:  ['', 'text'],
+        email:     ['', 'email'],
+        homePhone: ['', 'tel'],
+        cellPhone: ['', 'tel'],
+        birthday:  ['', 'date'],
+        website:   ['', 'url'],
+        address:   ['', 'text']
+    });
 
+    $scope.save = function () {
+        if ($scope.newContact.$invalid) {
+            $scope.$broadcast('record:invalid');
+        } else {
+            $scope.contact.$save();
+            $location.url('/contacts');
+        }
+    };
 }).controller('SingleController',function($scope, $rootScope, $contact, $location, $routeParams){
     $scope.contact = $contact.get({ id: parseInt($routeParams.id, 10) });
     $scope.delete = function () {

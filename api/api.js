@@ -9,18 +9,14 @@ var express    = require('express'),
     router     = express.Router();
 
 router
-    .use(function(req, res, next){
-        if(!req.user) req.user = {id: 1};
-        next();
-    })
     .use(bodyParser.json())
     .route('/contact')
-    .get(function(req,res){
-        db.find({userId: parseInt(req.user.id, 10) }, function(err, data){
+    .get(function (req, res) {
+        db.find({ userId: parseInt(req.user.id, 10) }, function (err, data) {
             res.json(data);
-        })
+        });
     })
-    .post(function(req,res){
+    .post(function (req, res) {
         var contact = req.body;
         contact.userId = req.user.id;
 
