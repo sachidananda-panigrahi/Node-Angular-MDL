@@ -1,0 +1,14 @@
+<div ng-form="{{field}}" >
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"  ng-switch='required' ng-class="{ 'is-invalid': field.$dirty && field.$invalid }">
+        <input ng-switch-when='true' ng-model='record[field][0]' type='{{record[field][1]}}'  class="mdl-textfield__input" ng-change='update()' ng-blur='blurUpdate()' id="{{field+1}}" required />
+        <div ng-switch-default>
+            <input ng-model='record[field][0]' type='{{record[field][1]}}' class='mdl-textfield__input' ng-change='update()' ng-blur='blurUpdate()' id="{{field+1}}" />
+            <i class='material-icons' ng-click='remove(field)'>delete</i>
+        </div>
+        <label class="mdl-textfield__label" for="{{field+1}}">{{ field | labelCase }} <i ng-if='required'>*</i></label>
+        <div ng-show='field.$dirty && field.$invalid' ng-messages='field.$error'>
+            <span class="mdl-textfield__error" ng-message='required'>{{ field | labelCase }} is required.</span>
+            <span class="mdl-textfield__error" ng-repeat='(k, v) in types' ng-message='k' >{{ field | labelCase }} {{v[1]}}</span>
+        </div>
+    </div>
+</div>

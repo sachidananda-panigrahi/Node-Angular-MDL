@@ -14,7 +14,7 @@
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp nam-full-width">
             <thead>
             <tr>
-                <th class="mdl-data-table__cell--non-numeric" ng-repeat="field in fields" ng-click="sort(field)">
+                <th ng-repeat="field in fields" ng-click="sort(field)" ng-class="{'mdl-data-table__cell--non-numeric': field == fields[0]}">
                     <span class="mdl-typography--text-center">{{ field | labelCase }}</span>
                     <i ng-show='sort.field === field  && !sort.order' class='material-icons'>keyboard_arrow_up</i>
                     <i ng-show='sort.field === field  && sort.order' class='material-icons'>keyboard_arrow_down</i>
@@ -23,7 +23,7 @@
             </thead>
             <tbody>
             <tr ng-click='show(contact.id)'  ng-repeat='contact in contacts | filter: query | orderBy: sort.field : sort.order'>
-                <td class="mdl-data-table__cell--non-numeric" ng-repeat='field in fields'>{{ contact[field][0] }}</td>
+                <td ng-repeat='field in fields'  ng-class="{'mdl-data-table__cell--non-numeric': field == fields[0]}">{{ contact[field][0] }}</td>
             </tr>
             </tbody>
         </table>

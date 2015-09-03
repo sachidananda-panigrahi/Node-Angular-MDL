@@ -1,6 +1,17 @@
-<!--table content for contacts-->
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
         <h3 class="mdl-typography--title">{{contact.firstName[0]}} {{contact.lastName[0]}}</h3>
+        <!-- Numeric Textfield with Floating Label -->
+        <form name='editContact' novalidate>
+            <form-field record='contact' field='firstName' required='true'></form-field>
+            <form-field record='contact' field='lastName' required='true'></form-field>
+            <form-field record='contact' field='{{k}}' ng-repeat='(k,y) in contact | keyFilter: "firstName" | keyFilter: "lastName" | keyFilter: "id" | keyFilter: "userId"'></form-field>
+
+            <!-- Accent-colored raised button with ripple -->
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click='delete()'>
+                Delete Contact
+                <i class="material-icons">delete</i>
+            </button>
+        </form>
     </div>
 </div>

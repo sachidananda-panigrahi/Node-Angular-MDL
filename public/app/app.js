@@ -1,7 +1,7 @@
 /**
  * Created by Sachidananda on 27-08-2015.
  */
-angular.module('contactsApp', ['ngRoute', 'ngResource'])
+angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/contacts', {
@@ -25,6 +25,6 @@ angular.module('contactsApp', ['ngRoute', 'ngResource'])
         $rootScope.$on('$viewContentLoaded', function() {
             $timeout(function() {
                 componentHandler.upgradeAllRegistered();
-    })
-})
-});
+            })
+        })
+    });
