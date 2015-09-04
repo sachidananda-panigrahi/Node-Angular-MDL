@@ -18,6 +18,7 @@
     <!--<link href='images/favicon.ico' rel='shortcut icon'>-->
     <base href='/'>
     <!--<link rel="stylesheet" href="assets/lib/bower_components/material-design-lite/material.min.css">-->
+    <link rel="stylesheet" href="assets/lib/bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="assets/css/material.cyan-deep_purple.min.css">
     <link rel="stylesheet" href="assets/css/icon.css">
     <link rel="stylesheet" href="assets/css/custom.css">
@@ -28,15 +29,37 @@
 
 
 <div class="nam-layout-waterfall mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--waterfall" ng-include='"views/nav.html"'></header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Contact</span>
-        <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
-        <a class="mdl-navigation__link" href="/contact/new">New Contact</a>
-        <a class="mdl-navigation__link" href="/settings">Settings</a>
-    </nav>
+    <div ng-controller="sideNavController">
+        <header class="mdl-layout__header mdl-layout__header--waterfall" ng-include='"views/nav.html"'></header>
+        <div layout="row">
+            <md-sidenav md-component-id="left" class="md-sidenav-left">
+
+                <span class="mdl-layout-title">Contact</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
+                    <a class="mdl-navigation__link" href="/contact/new">New Contact</a>
+                    <a class="mdl-navigation__link" href="/settings">Settings</a>
+                </nav>
+
+            </md-sidenav>
+            <md-content>
+                <!--Center Content-->
+                <md-button ng-click="openLeftMenu()">
+                    Open Left Menu
+                </md-button>
+            </md-content>
+            <md-sidenav md-component-id="right" md-is-locked-open="$mdMedia('min-width: 333px')" class="md-sidenav-right">
+                <form>
+                    <md-input-container>
+                        <label for="testInput">Test input</label>
+                        <input id="testInput" type="text" ng-model="data" md-sidenav-focus>
+                    </md-input-container>
+                </form>
+            </md-sidenav>
+        </div>
     </div>
+
+
     <!--main content starts-->
     <main class="mdl-layout__content">
         <div class="page-content" ng-view>
@@ -44,8 +67,11 @@
     </main>
 </div>
 
-<script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
+<!--<script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>-->
 <script src="assets/lib/bower_components/angular/angular.min.js"></script>
+<script src="assets/lib/bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="assets/lib/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="assets/lib/bower_components/angular-material/angular-material.min.js"></script>
 <script src="assets/lib/bower_components/angular-route/angular-route.min.js"></script>
 <script src="assets/lib/bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="assets/lib/bower_components/angular-messages/angular-messages.min.js"></script>

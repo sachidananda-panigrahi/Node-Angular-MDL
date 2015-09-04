@@ -1,7 +1,7 @@
 /**
  * Created by Sachidananda on 27-08-2015.
  */
-angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
+angular.module('contactsApp', [ 'ngMaterial' ,'ngRoute', 'ngResource', 'ngMessages'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/contacts', {
@@ -30,21 +30,5 @@ angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
         Fields.get().success(function (data) {
             options.displayed_fields = data;
         });
-        $rootScope.$on('$viewContentLoaded', function() {
-            $timeout(function() {
-                componentHandler.upgradeAllRegistered();
-            })
-        })
-    });
 
-/*.run(function (options, Fields, $rootScope, $timeout) {
-    Fields.get().success(function (data) {
-        options.displayed_fields = data;
     });
-    $rootScope.$on('$viewContentLoaded', function() {
-        $timeout(function() {
-            componentHandler.upgradeAllRegistered();
-        })
-    })
-});
-*/

@@ -2,21 +2,27 @@
  * Created by Sachidananda on 26-08-2015.
  */
 var app = angular.module('contactsApp');
-app.controller('ListController', function ($scope, $rootScope, $contact, $location, options) {
-        $rootScope.PAGE = "all";
-        $scope.contacts = $contact.query();
-        $scope.fields = ['firstName', 'lastName'].concat(options.displayed_fields);
+app.controller('ListController', function ($scope, $rootScope, $contact, $location, options, $mdSidenav) {
+    $rootScope.PAGE = "all";
 
-        $scope.sort = function (field) {
-            $scope.sort.field = field;
-            $scope.sort.order = !$scope.sort.order;
-        };
+    $scope.contacts = $contact.query();
+    $scope.fields = ['firstName', 'lastName'].concat(options.displayed_fields);
 
-        $scope.sort.field = 'firstName';
-        $scope.sort.order = false;
+    $scope.sort = function (field) {
+        $scope.sort.field = field;
+        $scope.sort.order = !$scope.sort.order;
+    };
 
-        $scope.show = function (id) {
-            $location.url('/contact/' + id);
+    $scope.sort.field = 'firstName';
+    $scope.sort.order = false;
+
+    $scope.show = function (id) {
+        $location.url('/contact/' + id);
+    };
+})
+    .controller('sideNavController', function($mdSidenav, $scope){
+        $scope.openLeftMenu = function() {
+            $mdSidenav('left').toggle();
         };
     })
     .controller('newContactController', function ($scope, $rootScope, $contact, $location) {
