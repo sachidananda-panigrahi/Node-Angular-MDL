@@ -3,15 +3,18 @@
         <h3 class="mdl-typography--title">New Contact</h3>
         <!-- Numeric Textfield with Floating Label -->
         <form name='newContact' novalidate>
-            <form-field record='contact' field='firstName' required='true'></form-field>
+            <!--<form-field record='contact' field='firstName' required='true'></form-field>
             <form-field record='contact' field='lastName' required='true'></form-field>
             <form-field record='contact' field='{{k}}' ng-repeat='(k,y) in contact | keyFilter: "firstName" | keyFilter: "lastName" '></form-field>
 
-            <!-- Accent-colored raised button with ripple -->
+            &lt;!&ndash; Accent-colored raised button with ripple &ndash;&gt;
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click='save()'>
                 Create Contact
                 <i class="material-icons">send</i>
-            </button>
+            </button>-->
+            <mdl-text-field label="First Name" ng-model="first_name" record='contact' field='firstName' required='true'></mdl-text-field>
+            <mdl-text-field label="Last Name" ng-model="last_name" record='contact' field='lastName' required='true'></mdl-text-field>
+            <mdl-text-field label="{{k}}" record='contact'  ng-repeat='(k,y) in contact | keyFilter: "firstName" | keyFilter: "lastName" '></mdl-text-field>
         </form>
     </div>
 </div>
