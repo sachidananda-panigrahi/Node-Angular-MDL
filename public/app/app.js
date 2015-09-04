@@ -16,19 +16,35 @@ angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
                 controller: 'SingleController',
                 templateUrl: 'views/single-contact.html'
             })
+            .when('/settings', {
+                controller: 'SettingsController',
+                templateUrl: 'views/settings.html'
+            })
             .otherwise({
                 redirectTo: '/contacts'
             });
         $locationProvider.html5Mode(true);
     })
     .value('options', {})
-    .run(function ($rootScope, $timeout, options, Fields) {
+    .run(function (options, Fields, $rootScope, $timeout) {
+        Fields.get().success(function (data) {
+            options.displayed_fields = data;
+        });
         $rootScope.$on('$viewContentLoaded', function() {
-            Fields.get().success(function (data) {
-                options.displayed_fields = data;
-            });
             $timeout(function() {
                 componentHandler.upgradeAllRegistered();
             })
         })
     });
+
+/*.run(function (options, Fields, $rootScope, $timeout) {
+    Fields.get().success(function (data) {
+        options.displayed_fields = data;
+    });
+    $rootScope.$on('$viewContentLoaded', function() {
+        $timeout(function() {
+            componentHandler.upgradeAllRegistered();
+        })
+    })
+});
+*/

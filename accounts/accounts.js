@@ -29,8 +29,10 @@ router
             username: req.body.username,
             password: hash(req.body.password)
         };
+        console.log(req.body.username);
         db.findOne(user, function (err, data) {
             if (data) {
+                console.log(data);
                 req.session.userId = data.id;
                 res.redirect('/');
             } else {
@@ -39,6 +41,7 @@ router
         });
     })
     .post('/register', function (req, res) {
+
         var user = {
             username: req.body.username,
             password: hash(req.body.password),

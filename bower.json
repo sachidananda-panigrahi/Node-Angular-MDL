@@ -6,6 +6,7 @@
     "angular-messages": "~1.4.5",
     "angular-resource": "~1.4.5",
     "angular-route": "~1.4.4",
+    "jquery": "~2.1.4",
     "material-design-lite": "~1.0.2"
   },
   "devDependencies": {}
