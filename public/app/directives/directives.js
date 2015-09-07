@@ -45,12 +45,14 @@ app.value('FieldTypes', {
                         });
                     }
                 };
-                var saveTimeout;
+               /* var saveTimeout;
 
                 $scope.update = function () {
                     $timeout.cancel(saveTimeout);
                     saveTimeout = $timeout($scope.blurUpdate, 3000);
-                };
+                    $scope.blurUpdate();
+
+                };*/
                 $timeout(function() {
                     componentHandler.upgradeAllRegistered();
                 })

@@ -3,5 +3,11 @@
 }
 .nam-full-width{
     width: 100%;
+    position: relative;
+}
+.nam-floating--icons{
+    position: absolute;
+    top: calc(50% - 15px);
+    right: 0;
 }
 
