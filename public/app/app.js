@@ -6,7 +6,12 @@ angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
         $routeProvider
             .when('/contacts', {
                 controller: 'ListController',
-                templateUrl: 'views/all-contacts.html'
+                templateUrl: 'views/all-contacts.html',
+                resolve: {
+                    init: ['InitService', function (Init) {
+                        return Init.promise;
+                    }]
+                }
             })
             .when('/contact/new', {
                 controller: 'newContactController',
@@ -18,7 +23,12 @@ angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
             })
             .when('/settings', {
                 controller: 'SettingsController',
-                templateUrl: 'views/settings.html'
+                templateUrl: 'views/settings.html',
+                resolve: {
+                    init: ['InitService', function (Init) {
+                        return Init.promise;
+                    }]
+                }
             })
             .otherwise({
                 redirectTo: '/contacts'
@@ -26,10 +36,14 @@ angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
         $locationProvider.html5Mode(true);
     })
     .value('options', {})
-    .run(function (options, Fields, $rootScope, $timeout) {
+    .run(function (options, Fields, $rootScope, $timeout, InitService) {
         Fields.get().success(function (data) {
+           /* console.log("data=====");
+            console.log(data);*/
             options.displayed_fields = data;
+            InitService.defer.resolve();
         });
+
         $rootScope.$on('$viewContentLoaded', function() {
             $timeout(function() {
                 componentHandler.upgradeAllRegistered();
@@ -38,13 +52,13 @@ angular.module('contactsApp', ['ngRoute', 'ngResource', 'ngMessages'])
     });
 
 /*.run(function (options, Fields, $rootScope, $timeout) {
-    Fields.get().success(function (data) {
-        options.displayed_fields = data;
-    });
-    $rootScope.$on('$viewContentLoaded', function() {
-        $timeout(function() {
-            componentHandler.upgradeAllRegistered();
-        })
-    })
-});
-*/
+ Fields.get().success(function (data) {
+ options.displayed_fields = data;
+ });
+ $rootScope.$on('$viewContentLoaded', function() {
+ $timeout(function() {
+ componentHandler.upgradeAllRegistered();
+ })
+ })
+ });
+ */
