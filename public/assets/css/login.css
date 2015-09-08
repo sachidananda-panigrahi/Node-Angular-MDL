@@ -92,8 +92,7 @@ body {
     position: relative;
     max-width: 460px;
     width: 100%;
-    margin: 0 auto 100px;
-    margin-top: calc(50% - 685px);
+    margin: 20px auto 100px;
 
 }
 .container.active .card:first-child {
