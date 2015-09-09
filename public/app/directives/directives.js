@@ -1,7 +1,5 @@
-/**
- * Created by Sachidananda on 26-08-2015.
- */
-var app = angular.module('contactsApp');
+
+var app = angular.module('flightApp');
 app.value('FieldTypes', {
     text: ['Text', 'should be text'],
     email: ['Email', 'should be an email address'],
@@ -23,6 +21,8 @@ app.value('FieldTypes', {
             scope: {
                 record: '=',
                 field: '@',
+                icons: '@',
+                type: '@',
                 live: '@',
                 required: '@'
             },
@@ -45,14 +45,7 @@ app.value('FieldTypes', {
                         });
                     }
                 };
-               /* var saveTimeout;
 
-                $scope.update = function () {
-                    $timeout.cancel(saveTimeout);
-                    saveTimeout = $timeout($scope.blurUpdate, 3000);
-                    $scope.blurUpdate();
-
-                };*/
                 $timeout(function() {
                     componentHandler.upgradeAllRegistered();
                 })

@@ -1,7 +1,5 @@
-/**
- * Created by Sachidananda on 26-08-2015.
- */
-var app = angular.module('contactsApp');
+
+var app = angular.module('flightApp');
 app.filter('labelCase', function () {
     return function (input) {
         input = input.replace(/([A-Z])/g, ' $1');

@@ -1,8 +1,6 @@
-/**
- * Created by Sachidananda on 26-08-2015.
- */
-var app = angular.module('contactsApp');
-app.controller('ListController', function ($scope, $rootScope, $contact, $location, options) {
+
+var app = angular.module('flightApp');
+app.controller('homeController', function ($scope, $rootScope, $contact, $location, options) {
     $rootScope.PAGE = "all";
     $scope.contacts = $contact.query();
 //    console.log(options);

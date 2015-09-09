@@ -1,75 +1,50 @@
 <!doctype html>
-<html ng-app='contactsApp'>
+<html ng-app='flightApp'>
 <head data-template-set='html5-reset' id='www-sitename-com'>
     <meta charset='utf-8'>
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
     <meta content='deny' http-equiv='X-Frame-Options'>
-    <title>Google Materialize </title>
+    <title>Flight Booking </title>
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <meta content='Google Materialize ' name='title'>
-    <meta content=' Google Materialize ’s is Your Smart Driving Assistant' name='description'>
+    <meta content='Flight Booking ' name='title'>
+    <meta content=' Flight Booking ’s is Your Smart Driving Assistant' name='description'>
     <!-- Google will often use this as its description of your page/site. Make it good. -->
-    <meta content='Google Materialize ' name='google-site-verification'>
-    <meta content='Google Materialize ' name='author'>
-    <meta content='Copyright &amp;copy; 2015 Google Materialize . All Rights Reserved.' name='Copyright'>
+    <meta content='Flight Booking ' name='google-site-verification'>
+    <meta content='Flight Booking ' name='author'>
+    <meta content='Copyright &amp;copy; 2015 Flight Booking . All Rights Reserved.' name='Copyright'>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!--<link href='images/favicon.ico' rel='shortcut icon'>-->
     <base href='/'>
-    <!--<link rel="stylesheet" href="assets/lib/bower_components/material-design-lite/material.min.css">-->
-    <link rel="stylesheet" href="assets/css/material.cyan-deep_purple.min.css">
+    <link rel="stylesheet" href="assets/lib/bower_components/Materialize/dist/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/icon.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 
 </head>
 <body>
 
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Contact</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Flight Booking</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="mdl-navigation__link" href="/home">Home</a></li>
+                <li><a class="mdl-navigation__link" href='/logout' target='_self'>Log out</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a class="mdl-navigation__link" href="/home">Home</a></li>
+                <li><a class="mdl-navigation__link" href='/logout' target='_self'>Log out</a></li>
+            </ul>
         </div>
-    </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Contact</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
-            <a class="mdl-navigation__link" href="/contact/new">New Contact</a>
-            <a class="mdl-navigation__link" href="/settings">Settings</a>
-            <a class="mdl-navigation__link" href='/logout' target='_self'>Log out</a>
-        </nav>
-    </div>
-    <main class="mdl-layout__content">
-        <div class="page-content" ng-view></div>
-    </main>
+    </nav>
 </div>
 
+<div ng-view></div>
 
-<!--
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header" ng-include='"views/nav.html"'></header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Contact</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
-            <a class="mdl-navigation__link" href="/contact/new">New Contact</a>
-            <a class="mdl-navigation__link" href="/settings">Settings</a>
-        </nav>
-    </div>
-    &lt;!&ndash;main content starts&ndash;&gt;
-    <main class="mdl-layout__content">
-        <div class="page-content" ng-view>
-        </div>
-    </main>
-</div>-->
-
-<script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
+<script src="assets/lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="assets/lib/bower_components/Materialize/dist/js/materialize.min.js"></script>
 <script src="assets/lib/bower_components/angular/angular.min.js"></script>
 <script src="assets/lib/bower_components/angular-route/angular-route.min.js"></script>
 <script src="assets/lib/bower_components/angular-resource/angular-resource.min.js"></script>

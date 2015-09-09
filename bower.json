@@ -2,6 +2,7 @@
   "name": "materialize-angular-poc",
   "version": "0.0.1",
   "dependencies": {
+    "Materialize": "materialize#~0.97.0",
     "angular": "~1.4.4",
     "angular-material": "~0.10.1",
     "angular-messages": "~1.4.5",
