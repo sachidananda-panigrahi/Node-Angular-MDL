@@ -24,25 +24,50 @@
 
 </head>
 <body>
-<!-- Uses a header that contracts as the page scrolls down. -->
 
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Contact</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
 
-<div class="nam-layout-waterfall mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--waterfall" ng-include='"views/nav.html"'></header>
+        </div>
+    </header>
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Contact</span>
         <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
-        <a class="mdl-navigation__link" href="/contact/new">New Contact</a>
-        <a class="mdl-navigation__link" href="/settings">Settings</a>
-    </nav>
+            <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
+            <a class="mdl-navigation__link" href="/contact/new">New Contact</a>
+            <a class="mdl-navigation__link" href="/settings">Settings</a>
+            <a class="mdl-navigation__link" href='/logout' target='_self'>Log out</a>
+        </nav>
     </div>
-    <!--main content starts-->
+    <main class="mdl-layout__content">
+        <div class="page-content" ng-view></div>
+    </main>
+</div>
+
+
+<!--
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header" ng-include='"views/nav.html"'></header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Contact</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="/contacts">All Contacts</a>
+            <a class="mdl-navigation__link" href="/contact/new">New Contact</a>
+            <a class="mdl-navigation__link" href="/settings">Settings</a>
+        </nav>
+    </div>
+    &lt;!&ndash;main content starts&ndash;&gt;
     <main class="mdl-layout__content">
         <div class="page-content" ng-view>
         </div>
     </main>
-</div>
+</div>-->
 
 <script src="assets/lib/bower_components/material-design-lite/material.min.js"></script>
 <script src="assets/lib/bower_components/angular/angular.min.js"></script>
