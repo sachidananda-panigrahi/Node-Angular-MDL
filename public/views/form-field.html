@@ -1,17 +1,10 @@
 <div ng-form="{{field}}">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label nam-full-width" ng-switch='required'
-         ng-class="{ 'is-invalid': field.$dirty && field.$invalid }">
-        <input ng-switch-when='true' ng-model='record[field][0]' type='{{record[field][1]}}'
-               class="mdl-textfield__input" ng-change='update()' ng-blur='blurUpdate()' required/>
-
-        <div ng-switch-default>
-            <input ng-model='record[field][0]' type='{{type}}' class='mdl-textfield__input '
-                   ng-blur='blurUpdate()'/>
-            <i class='material-icons nam-floating--icons' ng-click='remove(field)'>{{icons}}</i>
-        </div>
-        <label class="mdl-textfield__label">{{ field | labelCase }} <i ng-if='required'>*</i></label>
+    <div class="input-field" ng-class="{ 'is-invalid': field.$dirty && field.$invalid }" ng-switch='type'>
+        <i class="material-icons prefix">{{icons}}</i>
+        <input id="{{field}}" ng-switch-default type="{{type}}" class="validate" ng-model='models' ng-change='search()' >
+        <input id="{{field}}" type="{{type}}" class="datepicker" ng-model='models' ng-switch-when='date'>
+        <label for="{{field}}">{{field | labelCase}}</label>
         <div ng-show='{{field}}.$dirty && {{field}}.$invalid' ng-messages="this.$eval(field)['$error']" role="alert">
-            <span class="mdl-textfield__error" ng-message='required'>{{ field | labelCase }} is required.</span>
             <span class="mdl-textfield__error" ng-repeat='(k, v) in types' ng-message='{{k}}'>
                 {{ field | labelCase }} {{v[1]}}
             </span>

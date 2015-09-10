@@ -19,11 +19,10 @@ app.value('FieldTypes', {
             replace: true,
             templateUrl: 'views/form-field.html',
             scope: {
-                record: '=',
                 field: '@',
                 icons: '@',
                 type: '@',
-                live: '@',
+                models: '@',
                 required: '@'
             },
             link: function ( $scope, element, attr) {
@@ -31,24 +30,35 @@ app.value('FieldTypes', {
                     $scope[$scope.field].$setDirty();
                 });
 
-                $scope.types = FieldTypes;
 
-                $scope.remove = function (field) {
-                    delete $scope.record[field];
-                    $scope.blurUpdate();
+                $scope.search = function (value) {
+
                 };
 
-                $scope.blurUpdate = function () {
-                    if ($scope.live !== 'false') {
-                        $scope.record.$update(function (updatedRecord) {
-                            $scope.record = updatedRecord;
-                        });
-                    }
-                };
+                $timeout(function(){
+                    $('.datepicker').pickadate({
+                        selectMonths: true, // Creates a dropdown to control month
+                        selectYears: 15, // Creates a dropdown of 15 years to control year
+                        min: true,
+                        onOpen: function () {
+                            this.clear();
+                        },
+                        onSet: function () {
+                            /*var x,y,year,date,month;
+                             x = $('.datepicker1').pickadate().val().toString();
+                             y = x.split(/[ ,]+/);
+                             date = y[0];
+                             month = y[1];
+                             year = y[2];
+                             console.log(y[0]+" "+ y[1]+ " "+ y[2]);
+                             if(date && month && year){
+                             this.close();
+                             }*/
+                        }
+                    });
+                },100)
 
-                $timeout(function() {
-                    componentHandler.upgradeAllRegistered();
-                })
             }
+
         };
     });

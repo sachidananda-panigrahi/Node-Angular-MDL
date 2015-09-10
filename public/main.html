@@ -24,22 +24,7 @@
 </head>
 <body>
 
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Flight Booking</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a class="mdl-navigation__link" href="/home">Home</a></li>
-                <li><a class="mdl-navigation__link" href='/logout' target='_self'>Log out</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a class="mdl-navigation__link" href="/home">Home</a></li>
-                <li><a class="mdl-navigation__link" href='/logout' target='_self'>Log out</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+<div class="navbar-fixed" ng-include="'views/nav.html'"></div>
 
 <div ng-view></div>
 

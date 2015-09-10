@@ -1,33 +1,18 @@
 
 var app = angular.module('flightApp');
-app.factory('$contact', function($resource){
-    return $resource('/api/contact/:id', {id: '@id'}, {
-        'update': {method: 'PUT'}
-    })
-}).factory('Fields', function ($q, $http, $contact) {
-    var url = '/options/displayed_fields',
-        ignore = ['firstName', 'lastName', 'id', 'userId'],
-        allFields = [],
-        deferred = $q.defer(),
-
-        contacts = $contact.query(function () {
-            contacts.forEach(function (c) {
-                Object.keys(c).forEach(function (k) {
-                    if (allFields.indexOf(k) < 0 && ignore.indexOf(k) < 0) allFields.push(k);
-                });
-            });
-            deferred.resolve(allFields);
-        });
-
+app.factory('$cities', function ($http) {
     return {
-        get: function () {
-            return $http.get(url);
-        },
-        set: function (newFields) {
-            return $http.post(url, { fields: newFields });
-        },
-        headers: function () {
-            return deferred.promise;
+        get : function(){
+           var data = $http.get('/api/cities').
+                then(function(response) {
+                    console.log(response)
+                    return response;
+                }, function(response) {
+
+                });
+            return data;
         }
-    };
+
+    }
+
 });
