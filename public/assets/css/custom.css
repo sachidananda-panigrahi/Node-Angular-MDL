@@ -1,24 +1,6 @@
-.nav-wrapper .brand-logo{
-    margin-left: 10px;
-}
-.card .card-title{
-    color: #000000;
-    display: block;
-    box-sizing: border-box;
-    padding: 10px 0 10px 20px;
-    border-bottom: 1px solid rgba(160,160,160,0.2);
-}
-.card.medium .card-content{
-    height: 280px;
-}
-.card.medium{
-    height: 435px;
-}
-.btn-text {
-    display: inline-block;
-    line-height: 20px;
-    padding: 0px 10px;
-    vertical-align: middle;
-    position: relative;
-    top: -4px;
+.carddemoBasicUsage md-card {
+    min-height: 150px; }
+.md-datepicker-input{
+    max-width: 100%;
+    width: 320px;
 }

@@ -6,4 +6,17 @@ app.service('InitService', ['$q', function ($q) {
         defer: d,
         promise: d.promise
     };
-}]);
+}]).service('$selectedAirport', function(){
+    this.selected = [];
+
+    this.setSelected = function(data){
+        if(this.selected.length < 2){
+            this.selected.push(data);
+        }else{
+            this.selected = [];
+        }
+    };
+    this.getSelected = function(){
+        return this.selected;
+    };
+});

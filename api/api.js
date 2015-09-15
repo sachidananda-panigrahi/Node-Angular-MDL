@@ -1,19 +1,26 @@
-
-var express    = require('express'),
-    Bourne     = require('bourne'),
+var express = require('express'),
+    Bourne = require('bourne'),
     bodyParser = require('body-parser'),
-
-    db         = new Bourne('airports.json'),
-    router     = express.Router();
+    airportDB = new Bourne('airports.json'),
+    searchFlight = new Bourne('searchFlight.json'),
+    router = express.Router();
 
 router.use(bodyParser.json())
     .route('/cities')
     .get(function (req, res) {
-        console.log("req rec");
-        db.find({},function (err, data) {
-            console.log("data");
+        airportDB.find({}, function (err, data) {
             res.json(data);
         });
+    })
+    .put(function (req, res) {
+        searchFlight.insert({}, function(){
+
+        })
+    });
+router.use(bodyParser.json())
+    .route('/search')
+    .get(function (req, res) {
+
     });
 
 
