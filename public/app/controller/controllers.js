@@ -39,6 +39,16 @@ app.controller('mainController', function ($scope, $mdSidenav) {
             $scope.journeyDate.getMonth() + 2,
             $scope.journeyDate.getDate());
 
+        $scope.oneWayjourneyDate = new Date();
+        $scope.oneWayMinDate = new Date(
+            $scope.oneWayjourneyDate.getFullYear(),
+            $scope.oneWayjourneyDate.getMonth(),
+            $scope.oneWayjourneyDate.getDate());
+        $scope.oneWayMaxDate = new Date(
+            $scope.oneWayjourneyDate.getFullYear(),
+            $scope.oneWayjourneyDate.getMonth() + 2,
+            $scope.oneWayjourneyDate.getDate());
+
         $scope.returnDate = new Date(
             $scope.journeyDate.getFullYear(),
             $scope.journeyDate.getMonth(),

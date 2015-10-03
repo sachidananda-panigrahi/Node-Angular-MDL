@@ -64,12 +64,65 @@
 
                 </md-tab>
                 <md-tab label="One Way Trip">
-                    <md-content class="md-padding">
-                        <h1 class="md-display-2">One Way</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-                        <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-                    </md-content>
+                    <div layout="row" layout-margin>
+                        <div flex="50">
+                            <h3>From</h3>
+                            <div ng-controller="homeController as ctrl">
+                                <md-autocomplete flex required
+                                                 md-search-text-change="ctrl.searchTextChange(ctrl.fromAirport)"
+                                                 md-selected-item-change="ctrl.selectedItemChange(item)"
+                                                 md-input-name="from"
+                                                 md-input-minlength="2"
+                                                 md-input-maxlength="70"
+                                                 md-selected-item="ctrl.selectedItem"
+                                                 md-search-text="ctrl.fromAirport"
+                                                 md-items="item in ctrl.states | filter: ctrl.fromAirport"
+                                                 md-item-text="item.name"
+                                                 md-floating-label="From Airport">
+                                    <md-item-template>
+                                        <span md-highlight-text="ctrl.fromAirport">{{item.name}}</span>
+                                    </md-item-template>
+                                    <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                                        <div ng-message="required">You <b>must</b> have to select.</div>
+                                        <div ng-message="minlength">Your entry is not long enough.</div>
+                                        <div ng-message="maxlength">Your entry is too long.</div>
+                                    </div>
+                                </md-autocomplete>
+                            </div>
+
+
+                        </div>
+                        <div flex="50">
+                            <h3>To </h3>
+                            <div ng-controller="homeController as ctrl">
+                                <md-autocomplete flex required
+                                                 md-search-text-change="ctrl.searchTextChange(ctrl.fromAirport)"
+                                                 md-selected-item-change="ctrl.selectedItemChange(item)"
+                                                 md-input-name="to"
+                                                 md-input-minlength="2"
+                                                 md-input-maxlength="70"
+                                                 md-selected-item="ctrl.selectedItem"
+                                                 md-search-text="ctrl.toAirport"
+                                                 md-items="item in ctrl.states | filter: ctrl.toAirport"
+                                                 md-item-text="item.name"
+                                                 md-floating-label="To Airport">
+                                    <md-item-template>
+                                        <span md-highlight-text="ctrl.toAirport">{{item.name}}</span>
+                                    </md-item-template>
+                                    <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                                        <div ng-message="required">You <b>must</b> have to select.</div>
+                                        <div ng-message="minlength">Your entry is not long enough.</div>
+                                        <div ng-message="maxlength">Your entry is too long.</div>
+                                    </div>
+                                </md-autocomplete>
+                            </div>
+
+                        </div>
+                        <div flex="100">
+                            <md-datepicker ng-model="oneWayjourneyDate" md-placeholder="Enter journey date"  md-min-date="oneWayMinDate" md-max-date="oneWayMaxDate"></md-datepicker>
+                        </div>
+                    </div>
+
                 </md-tab>
 
             </md-tabs>
